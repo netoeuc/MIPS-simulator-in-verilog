@@ -1,0 +1,9 @@
+module AdderPC4(PC);
+
+input [31:0] PC;
+output [31:0] novoPC;
+
+wire [31:0] PC;
+wire [31:0] novoPC;
+
+reg novoPC = PC+4;

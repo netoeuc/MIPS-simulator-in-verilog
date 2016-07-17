@@ -1,0 +1,20 @@
+module Mux2(saidaMux1, sinalDoControleMux2, saidaMux2);
+// Mux para selecionar entre jal ou não jal (onde o $ra será a entrada do banco de registradores)
+
+input [4:0] saidaMux1;
+input [1:0] sinalDoControleMux2;
+
+wire [4:0] saidaMux1;
+wire [1:0] sinalDoControleMux1;
+
+output [4:0] saidaMux2;
+reg [4:0] saidaMux2;
+reg [4:0] ra = 2'b11111; // $ra é o registrador 31 (2'b11111)
+
+always @(sinalDoControleMux2)
+	begin
+		saidaMux2 = sinalDoControleMux2==0 ? saidaMux1 : ra;
+	end
+endmodule
+
+
